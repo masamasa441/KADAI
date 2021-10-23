@@ -15,15 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::grope(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function() {
     route::get('news/create','Admin\NewsController@add');
 });
 
 
-Route::get('XXX',
-`XXX\AAA@bbb`);
 
-Route::grope(['prefix' => 'admin'],function() {
+
+Route::group(['prefix' => 'admin'],function() {
     route::get('profile/create','Admin\ProfileController@add');
     route::get('profile/edit','Admin\ProfileController@edit');
     });

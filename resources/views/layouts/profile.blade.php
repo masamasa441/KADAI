@@ -37,8 +37,25 @@
                         </ul>
                         
                         <ul class="navber-nav mr-auto">
-                            
-                        </ul>
+                            @guest
+                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            @else
+                              <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                                
+                                <div class="dropdown-menu" aria-labelledby="navberDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onelick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        {{ __('logout') }}
+                                    </a>
+                                    
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                              </li>
+                        @endguest>
                     </div>
                 </div>
             </nav>

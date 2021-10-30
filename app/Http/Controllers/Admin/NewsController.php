@@ -7,6 +7,12 @@ use App\Http\Controllers\Controller;
 
 use App\News;
 
+use App\History;
+
+use Carbon\Carbon;
+
+
+
 class NewsController extends Controller
 {
     //
@@ -82,6 +88,11 @@ class NewsController extends Controller
    
    $news->fill($news_form)->save();
    
+   $history = new History();
+   $history->news_id = $news->id;
+   $history->edited_at = Carbon::now();
+   $history->save();
+   
    return redirect('admin/news');
   }
   
@@ -89,7 +100,7 @@ class NewsController extends Controller
    {
    $news = News::find($request->id);
    
-   $news->delete();
+   $news->delete(); 
    return redirect('admin/news');
    }
 }

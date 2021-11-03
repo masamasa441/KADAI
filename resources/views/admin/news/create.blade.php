@@ -6,6 +6,11 @@
         　    <div class="row">
         　        <div class="col-md-8 mx-auto">
         　            <h2>ニュース新規作成</h2>
+        　             <div class="row">
+        　              <div class="col-md-6">
+        　                  <a href="{{ action('Admin\NewsController@index') }}" role="button" class="btn btn-primary">ニュース一覧へ戻る</a>
+        　              </div>
+        　          </div>
         　            <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data" >
         　             
         　             
@@ -37,7 +42,9 @@
         　             {{ csrf_field() }}
         　             <input type="submit" class="btn btn-primary" value="更新">
         　           </form>
+        　         
         　        </div>
+        　    </div>
         　    </div>
         　</div>
         @endsection

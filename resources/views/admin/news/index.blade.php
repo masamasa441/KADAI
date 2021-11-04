@@ -13,7 +13,7 @@
       <div class="col-md-8">
           <from action="{{ action('Admin\NewsController@index') }}" method="get">
               <div class="form-group row">
-                  <label class="col-md-2">タイトル</label>
+                  <label class="col-md-2">ニュース検索</label>
                   <div class="col-md-8">
                       <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                   </div>
